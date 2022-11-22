@@ -10,14 +10,26 @@ const options = {
     }
 }
 
-const {border, bg} = options.colors;
-console.log(border, bg);
+
+
+const { border, bg } = options.colors;
+// console.log(border, bg);
 
 // console.log(options.name);
 // delete options.name;
 // console.log(options);
 
-// let counter = 0;
+let counter = 0;
+
+function countElementsObject(obj) {
+    for (let key in obj) {
+        if (typeof (obj[key]) !== 'object') return counter++;
+        countElementsObject(obj[key])
+    }
+
+}
+
+console.log(countElementsObject(options))
 
 // for (let key in options) {
 //     counter++;
