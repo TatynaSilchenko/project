@@ -59,18 +59,18 @@ function countElementsObject(obj) {
 //  for (let i = 1; i < 7; i++) {
 //     let a = [];
 //     for (let j = 0; j < i ; j ++) {
-        
+
 //         a = [...a, '*']
 //     }
 //     console.log(a)
 //  }
 
- //string
+//string
 //  let result = '';
 //  let length = 7; 
 //  for (let i = 1; i < length; i++) {
 //     for (let j = 0; j < i ; j ++) {
-        
+
 //         result += '*';
 //     }
 //     result += '\n'
@@ -146,8 +146,8 @@ function countElementsObject(obj) {
 //         result[i] = arr[i];
 //     }
 // console.log(result);   // Пишем решение вот тут
-    
-    
+
+
 //     // Не трогаем
 //     return result;
 // }
@@ -174,8 +174,8 @@ function countElementsObject(obj) {
 //     }
 // }
 // console.log(data);    // Пишем решение вот тут
-    
-    
+
+
 //     // Не трогаем
 //     return data;
 // }
@@ -191,12 +191,12 @@ function countElementsObject(obj) {
 //     const result = [];
 
 //     for (let i = 0; i < data.length; i++) {
-        
+
 //         result[i] = data[data.length -1 -i];
 //     }
 // console.log(result);  // Пишем решение вот тут
-    
-    
+
+
 //     // Не трогаем
 //     return result;
 // }
@@ -227,7 +227,7 @@ function countElementsObject(obj) {
 //             result +='*' 
 //         }
 
-         
+
 //         result += '\n'
 //     }
 // return result;
@@ -240,26 +240,26 @@ function countElementsObject(obj) {
 
 // let countStars = 11;
 // function christmasTreeTask() {
-   
+
 //     for (let i = 0; i <= lines; i++){
 //         let result = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
 //         let countStarsInRow = i*2 + 1;
 //         let position = lines - i;
 //         for (let j = 0; j < countStarsInRow; j++) {
-           
+
 //             result[position] ='*';
 //             position++;
 //         }
-        
+
 //         console.log(result)
 //     }
-    
+
 // }
 
 
 // Место для первой задачи ) Создайте функцию, которая будет на вход принимать 1 аргумент с именем человека и возвращать строку.
 function sayHello(name) {
-return `Привет, ${name}!`
+    return `Привет, ${name}!`
 }
 
 // console.log(sayHello('Ira'));
@@ -270,7 +270,7 @@ return `Привет, ${name}!`
 
 // Место для второй задачи
 function returnNeighboringNumbers(number) {
- return [number - 1, number, number + 1];
+    return [number - 1, number, number + 1];
 }
 
 // console.log(returnNeighboringNumbers(5));
@@ -301,3 +301,106 @@ function returnNeighboringNumbers(number) {
 // console.log(  getMathResult(20, -5));
 // console.log(  getMathResult(20, -5));
 // console.log(  getMathResult(20, -5));
+
+
+
+// 1) Создайте функцию, которая будет вычислять объем и площадь полной поверхности куба (тоже базовая математика, иногда используется в создании анимаций). 
+// Эта функция принимает в себя целое число со значением длины ребра куба. Ответ выведите в формате строки, который изображен в примерах.
+
+// Если в функцию попал неправильный аргумент или вычислить значения невозможно - вернуть строку "При вычислении произошла ошибка"
+
+function calculateVolumeAndArea(a) {
+    if (isNaN(a) || typeof (a) == 'string' || a < 0 || !Number.isInteger(a)) {
+        return 'При вычислении произошла ошибка';
+    }
+    let volume = a * a * a;
+    let area = 6 * a * a;
+
+    return `Объем куба: ${volume}, площадь всей поверхности: ${area}`;
+
+}
+
+// console.log(calculateVolumeAndArea(5));
+// console.log(calculateVolumeAndArea(15));
+// console.log(calculateVolumeAndArea(15.5));
+// console.log(calculateVolumeAndArea('15'));
+// console.log(calculateVolumeAndArea(-15));
+
+// 2) 
+// Напишите функцию, которая будет определять номер купе по переданному ей номеру места. 
+
+// Место для второй задачи
+function getCoupeNumber(placeNumber) {
+
+    if (!Number.isInteger(placeNumber) || isNaN(placeNumber) || typeof (placeNumber) == 'string' || placeNumber < 0) {
+        return "Ошибка. Проверьте правильность введенного номера места";
+    }
+
+    if (placeNumber < 1 || placeNumber > 36) {
+        return "Таких мест в вагоне не существует"
+    }
+    let number = placeNumber % 4;
+    let floor = Math.floor(placeNumber / 4);
+    if (!number) {
+        return floor;
+    } else {
+        return floor + 1;
+    }
+}
+
+// console.log(getCoupeNumber(33));
+// console.log(getCoupeNumber(7));
+// console.log(getCoupeNumber(300));
+// console.log(getCoupeNumber(0));
+// console.log(getCoupeNumber(7.7));
+// console.log(getCoupeNumber(-10));
+// console.log(getCoupeNumber('Hello'));
+
+// 1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки. (Смотри пример). 
+// Обратите внимание на окончание слова "час" - оно меняется в зависимости от цифры. 
+// Если вместо аргумента приходит не число, дробное или отрицательное число - функция возвращает строку "Ошибка, проверьте данные"
+
+
+// Место для первой задачи
+function getTimeFromMinutes(minutes) {
+    if (!Number.isInteger(minutes) || isNaN(minutes) || typeof (minutes) !== 'number' || minutes < 0) {
+        return "Ошибка, проверьте данные";
+    }
+
+    let hours = Math.floor(minutes / 60);
+    let hoursWord = hours % 10 == 1 ? `час` 
+                                    : (hours % 10 == 2 || hours % 10 == 3 || hours % 10 == 4) 
+                                    ? `часа` 
+                                    : `часов`;
+    let newMinutes = minutes % 60;
+
+    return `Это ${hours} ${hoursWord} и ${newMinutes} минут`
+
+}
+
+// console.log(getTimeFromMinutes(150));
+// console.log(getTimeFromMinutes(50));
+// console.log(getTimeFromMinutes(0));
+// console.log(getTimeFromMinutes(-150));
+
+// 2) Напишите функцию, которая принимает в себя 4 числа и возвращает самое большее из них.
+// Если один из аргументов не является числом или их меньше 4 - возвращается 0. Дробные числа разрешены.
+
+// Место для второй задачи
+function findMaxNumber() {
+    if (arguments.length < 4) {
+        return 0;
+    }
+    let maxNumber = arguments[0];
+    for (let i = 0; i < arguments.length; i ++) {
+        if (isNaN(arguments[i]) || typeof (arguments[i]) !== 'number' ) return 0;
+        if (arguments[i] > maxNumber) {
+            maxNumber = arguments[i];
+        }
+
+    }
+    return maxNumber;
+}
+
+console.log(findMaxNumber(1, 5, 6.6, 11));
+console.log(findMaxNumber(1, 5, '6', '10'));
