@@ -368,10 +368,10 @@ function getTimeFromMinutes(minutes) {
     }
 
     let hours = Math.floor(minutes / 60);
-    let hoursWord = hours % 10 == 1 ? `час` 
-                                    : (hours % 10 == 2 || hours % 10 == 3 || hours % 10 == 4) 
-                                    ? `часа` 
-                                    : `часов`;
+    let hoursWord = hours % 10 == 1 ? `час`
+        : (hours % 10 == 2 || hours % 10 == 3 || hours % 10 == 4)
+            ? `часа`
+            : `часов`;
     let newMinutes = minutes % 60;
 
     return `Это ${hours} ${hoursWord} и ${newMinutes} минут`
@@ -392,8 +392,8 @@ function findMaxNumber() {
         return 0;
     }
     let maxNumber = arguments[0];
-    for (let i = 0; i < arguments.length; i ++) {
-        if (isNaN(arguments[i]) || typeof (arguments[i]) !== 'number' ) return 0;
+    for (let i = 0; i < arguments.length; i++) {
+        if (isNaN(arguments[i]) || typeof (arguments[i]) !== 'number') return 0;
         if (arguments[i] > maxNumber) {
             maxNumber = arguments[i];
         }
@@ -402,5 +402,52 @@ function findMaxNumber() {
     return maxNumber;
 }
 
-console.log(findMaxNumber(1, 5, 6.6, 11));
-console.log(findMaxNumber(1, 5, '6', '10'));
+// console.log(findMaxNumber(1, 5, 6.6, 11));
+// console.log(findMaxNumber(1, 5, '6', '10'));
+
+
+
+// Создайте функцию, которая будет принимать в себя один аргумент-целое положительное число. 
+// Она должна возвращать строку, в которой будут через пробел выведены числа Фибоначчи. Причем, их количество должно быть равно переданному аргументу.
+
+// Если переданный аргумент не число - вернуть пустую строку. Решать без применения рекурсии.
+
+// Пример:
+
+// fib(4) => ''0 1 1 2"
+
+// fib(7) => ''0 1 1 2 3 5 8"
+
+function fib(count) {
+    let fibStr = '';
+    let first = 0;
+    let second = 1;
+
+    if (!Number.isInteger(count) || isNaN(count) || typeof (count) !== 'number' || count < 0) {
+        return "";
+    }
+
+    for (let i = 0; i < count; i++) {
+
+        switch (i) {
+            case 0 : {
+                fibStr = first + ' ';
+                break;
+            }
+            case 1 : {
+                fibStr += second + ' ';
+                break;
+            }
+            default: {
+                let sum = first + second;
+                fibStr += sum + ' ';
+                first = second;
+                second = sum;
+                break;
+            }
+
+        }
+    }
+    return fibStr.trim();
+}
+console.log (fib(7));
