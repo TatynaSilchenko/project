@@ -4,10 +4,10 @@ let numberOfFilms;
 
 
 function start() {
-    numberOfFilms = +prompt('Сколько фильмов вы уже просмотрели?', '');
+    numberOfFilms = +prompt('Сколько фильмов вы уже просмотрели?', '').trim();
 
     while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt('Сколько фильмов вы уже просмотрели?', '');
+        numberOfFilms = +prompt('Сколько фильмов вы уже просмотрели?', '').trim();
     }
 }
 
@@ -31,7 +31,7 @@ function showMyDB(hidden) {
 
 function writeYuorGenres() {
     for (let i = 1; i <= 3; i++) {
-        let genre = prompt(`Your favorite genre by number ${i}`);
+        let genre = prompt(`Your favorite genre by number ${i}`).trim();
         personalMovieDB.genres = [...personalMovieDB.genres,genre];
     }
 }
@@ -42,8 +42,8 @@ writeYuorGenres();
 
 function rememberMyFilms() {
     for (let i = 0; i < personalMovieDB.count; i++) {
-        let lastFilm1 = prompt('Last film?', 'Example');
-        let ratingFilm1 = +prompt('Rating?', '5');
+        let lastFilm1 = prompt('Last film?', 'Example').trim();
+        let ratingFilm1 = +prompt('Rating?', '5').trim();
         // do {
         //     lastFilm1 = prompt('Last film?', 'Example');
         // } while (lastFilm1 === '' || lastFilm1 === null || lastFilm1.length > 50);
