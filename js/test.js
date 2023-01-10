@@ -752,4 +752,29 @@ function sortStudentsByGroups(arr) {
     return newArr
 }
 
-console.log(sortStudentsByGroups(students))
+// console.log(sortStudentsByGroups(students))
+
+// function pow(a,b) {
+// if(b === 1) return a;
+// return a * pow(a,(b - 1))
+// }
+
+const pow = (a, b) => {
+    if(b === 1) return a;
+    return a * pow(a,b - 1)
+}
+
+// console.log(pow(3,3))
+
+//Напишите функцию, которая вычисляет факториал.
+// factorial(4) => 24
+
+const factorial = (n) => {
+    if (typeof(n) !== 'number' || !Number.isInteger(n)) {
+        return "Ошибка, проверьте данные";
+    }
+    if (n <= 0) return 1;
+    return n * factorial(n - 1);
+}
+
+// console.log(factorial(5));
