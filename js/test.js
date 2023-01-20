@@ -511,7 +511,7 @@ const personalPlanPeter = {
         exp: '1 month'
     },
     showAgeAndLangs(plan) {
-        let {languages} = plan.skills;
+        let { languages } = plan.skills;
         return `Мне ${plan.age} и я владею языками: ${languages.join(' ').toUpperCase()}`
     }
 };
@@ -541,7 +541,7 @@ const personalPlanPeter = {
 const family = ['Peter', 'Ann', 'Alex', 'Linda'];
 
 function showFamily(arr) {
-    return (!arr.length)?'Семья пуста':`Семья состоит из: ${arr.join(' ')}`;
+    return (!arr.length) ? 'Семья пуста' : `Семья состоит из: ${arr.join(' ')}`;
 }
 // console.log(showFamily(family))
 
@@ -598,10 +598,10 @@ function standardizeStrings(arr) {
 const someString = 'This is some strange string';
 
 function reverse(str) {
-return (typeof str !== 'string')?"Ошибка!":str.split(' ').reverse().map((el) => {
-    
-    return el.split('').reverse().join('');
- }).join(' ');;
+    return (typeof str !== 'string') ? "Ошибка!" : str.split(' ').reverse().map((el) => {
+
+        return el.split('').reverse().join('');
+    }).join(' ');;
 }
 
 // console.log(reverse(someString))
@@ -611,7 +611,7 @@ const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
 
 function availableCurr(arr, missingCurr) {
 
-    return (!arr.length)?'Нет доступных валют':"Доступные валюты:\n" + arr.filter((el,index) => arr[index] != missingCurr).join('\n').toUpperCase().trim();
+    return (!arr.length) ? 'Нет доступных валют' : "Доступные валюты:\n" + arr.filter((el, index) => arr[index] != missingCurr).join('\n').toUpperCase().trim();
 }
 
 // console.log(availableCurr(['UAH', 'RUB', 'CNY'], 'CNY'))
@@ -661,12 +661,12 @@ const shoppingMallData = {
     budget: 50000
 }
 
-function shopSquare (width,length) {
-return width*length
+function shopSquare(width, length) {
+    return width * length
 }
 
-function mallValume(s,h) {
-return s*h;
+function mallValume(s, h) {
+    return s * h;
 }
 
 function cost(price, val) {
@@ -674,12 +674,12 @@ function cost(price, val) {
 }
 
 function isBudgetEnough(data) {
-    let commonSquare,valumeMall, costMall;
-     commonSquare = data.shops.reduce((acc, current) => {
-       return acc + shopSquare(current.width,current.length);
+    let commonSquare, valumeMall, costMall;
+    commonSquare = data.shops.reduce((acc, current) => {
+        return acc + shopSquare(current.width, current.length);
     }, 0)
 
-    valumeMall = mallValume(commonSquare,data.height);
+    valumeMall = mallValume(commonSquare, data.height);
     costMall = cost(data.moneyPer1m3, valumeMall);
     return costMall > data.budget ? 'Бюджета недостаточно' : 'Бюджета достаточно';
 }
@@ -735,20 +735,20 @@ function sortStudentsByGroups(arr) {
 
     let coutArrays = Math.ceil(arr.length / 3);
     arr.sort();
-    
+
     for (let i = 0; i < coutArrays; i++) {
-        let item = arr.splice(0,3);
+        let item = arr.splice(0, 3);
 
         if (item.length < 3) {
 
             restValue = `${item.join(', ')}`
         } else {
-            newArr = [...newArr,item]
+            newArr = [...newArr, item]
         }
     }
 
     rest = rest + restValue;
-    newArr = [...newArr,rest]
+    newArr = [...newArr, rest]
     return newArr
 }
 
@@ -760,8 +760,8 @@ function sortStudentsByGroups(arr) {
 // }
 
 const pow = (a, b) => {
-    if(b === 1) return a;
-    return a * pow(a,b - 1)
+    if (b === 1) return a;
+    return a * pow(a, b - 1)
 }
 
 // console.log(pow(3,3))
@@ -770,7 +770,7 @@ const pow = (a, b) => {
 // factorial(4) => 24
 
 const factorial = (n) => {
-    if (typeof(n) !== 'number' || !Number.isInteger(n)) {
+    if (typeof (n) !== 'number' || !Number.isInteger(n)) {
         return "Ошибка, проверьте данные";
     }
     if (n <= 0) return 1;
@@ -778,3 +778,15 @@ const factorial = (n) => {
 }
 
 // console.log(factorial(5));
+
+const fibonichi = (n) => {
+
+    if (n <= 1) {
+        return 1;
+    }
+
+
+    return fibonichi(n - 1) + fibonichi(n - 2);
+}
+
+console.log(fibonichi(7))
